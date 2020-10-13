@@ -1,0 +1,108 @@
+
+<!doctype html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <style>
+        body {
+            background-color:cadetblue;
+            
+            color: white;
+        }
+
+
+        .form {
+            
+            width: fit-content;
+            padding: 23px;
+            margin: auto;
+            font-size: 16px;
+
+            margin-bottom: 30px;
+
+        }
+
+        input,
+        textarea {
+            background-color:black;
+            color: white;
+           
+            margin-top: 5px;
+        }
+
+        button,
+        .btn {
+            
+            padding: 5px 15px 5px 15px;
+            
+            
+            border: solid white 4px;
+            font-size: 16px;
+            font-family: Georgia, 'Times New Roman', Times, serif;
+            font-style: italic;
+            font-weight: bolder;
+        }
+
+        button:hover,
+        .btn:hover {
+            background-color: rgb(65, 16, 16);
+            color: white;
+        }
+
+        h2 {
+            margin: 20px 20px 20px 20px;
+        }
+
+    </style>
+
+    <title>Contact Us</title>
+</head>
+
+<body>
+    <main>
+        <h2 class="text-center" style="text-align: center;">Contact Us Form</h2>
+
+        <div id="myForm">
+            <form class="form">
+                <b>First Name</b><br /><input id="fName" type="text" size="30" required /><br /><br />
+                <b>Last Name</b><br /> <input id="lName" type="text" size="30" required /><br /><br />
+                <b>Email-Id</b><br /><input id="eMail" type="text" size="30" required /><br /><br />
+                <b>Phone No.</b><br /> <input id="phn" type="text" size="10" required /><br /><br />
+
+                <b>Your Query</b><br />
+                <textarea id="query" rows="4" cols="50" name="comment" required></textarea><br /><br />
+
+                &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<button id="check" type="submit"
+                    value="Submit"><b>Submit</b></button><span>&emsp;&emsp;&emsp;</span>          
+                  </form>
+        </div>
+    </main>
+
+    <script>
+        document.getElementById("check").onclick = function () {
+            let allAreFilled = true;
+            let fName = document.getElementById("fName").value,
+                lName = document.getElementById("lName").value,
+                eMail = document.getElementById("eMail").value,
+                phone = document.getElementById("phn").value,
+                query = document.getElementById("query").value;
+
+            document.getElementById("myForm").querySelectorAll("[required]").forEach(function (i) {
+                if (!allAreFilled) return;
+                if (!i.value) allAreFilled = false;
+            });
+
+            if (!allAreFilled) {
+                alert('All the fields are mandatory');
+            } else {
+                confirm(`Check your submitted details :\n\nFull Name : ${fName} ${lName} \nEmail-Id : ${eMail} \nPhone No. : ${phone} \nQuery : ${query}`);
+            }
+        };
+    </script>
+</body>
+
+</html>
